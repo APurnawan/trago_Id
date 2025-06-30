@@ -13,7 +13,7 @@ $user_id = $user['id'];
 $employee_id = $user['employee_id'];
 $role = $user['role'];
 
-// ✅ Handle kirim komentar
+//  Handle kirim komentar
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
     $log_id = $_POST['log_id'];
     $content = trim($_POST['comment_content']);
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
     exit;
 }
 
-// ✅ Handle tambah log baru
+//  Handle tambah log baru
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action'] === 'save_log') {
     $log_date = $_POST['log_date'];
     $log_time = $_POST['log_time'];
@@ -72,10 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['action'] === 'save_log') {
     exit;
 }
 
-// ✅ Ambil data log untuk user ini
+//  Ambil data log untuk user ini
 $logs = $conn->query("SELECT * FROM field_logs WHERE employee_id = $employee_id ORDER BY log_date DESC, log_time DESC");
 
-// ✅ Fungsi ambil komentar
+//  Fungsi ambil komentar
 function getCommentsByLog($conn, $log_id)
 {
     $stmt = $conn->prepare("SELECT c.*, u.email FROM comments c JOIN users u ON c.user_id = u.id WHERE log_id = ? ORDER BY created_at ASC");
