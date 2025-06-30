@@ -1,0 +1,87 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Layout wrapper */
+.wrapper {
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    width: 240px;
+    padding: 1.5rem 1rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #495057;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 240px; /* Sesuai dengan lebar sidebar */
+    flex: 1;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Responsive: Sidebar jadi atas */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    .photo-preview {
+        height: 300px;
+    }
+    .photo-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid #ccc;
+    }
+}
